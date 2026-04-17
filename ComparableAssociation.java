@@ -1,4 +1,4 @@
-public class ComparableAssociation<K extends Comparable<K>, V> implements Association<K, V> {
+public class ComparableAssociation<K extends Comparable<K>, V> implements Association<K, V>, Comparable<ComparableAssociation<K, V>> {
     private K key;
     private V value;
 
@@ -7,6 +7,7 @@ public class ComparableAssociation<K extends Comparable<K>, V> implements Associ
         this.value = value;
     }
 
+    @Override
     public int compareTo(ComparableAssociation<K, V> other) {
         return this.getKey().compareTo(other.getKey());
     }
