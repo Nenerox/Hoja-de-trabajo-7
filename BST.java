@@ -65,7 +65,7 @@ public class BST<E extends Comparable<E>> {
         if (root == null) {
             return null;
         }
-        if (root.value().equals(key)) { 
+        if (root.value().compareTo(key) == 0) { 
             return root;
         }
         if (root.value().compareTo(key) < 0) {
@@ -77,6 +77,7 @@ public class BST<E extends Comparable<E>> {
     // Inorder traversal
     public void inorder() {
         inorderRec(root);
+        System.out.println("\n");
     }
 
     private void inorderRec(BinaryTree<E> root) {
