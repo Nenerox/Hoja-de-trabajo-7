@@ -13,6 +13,11 @@ public class ComparableAssociation<K extends Comparable<K>, V> implements Associ
     }
 
     @Override
+    public String toString() {
+        return "(" + key + ", " + value + ")";
+    }
+
+    @Override
     public void setKey(K key) {
         this.key = key;
     }
