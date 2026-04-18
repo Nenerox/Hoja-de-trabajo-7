@@ -29,11 +29,13 @@ public class main {
             BinaryTree<ComparableAssociation<String, String>> resultado = bst.search(new ComparableAssociation<>((String) palabra.toLowerCase().trim().replace(".", ""), null));
             if (resultado == null) {
                 newTexto[i] = "*" + palabra + "*";
+            } else if (resultado != null && palabra.endsWith(".")) {
+                newTexto[i] = resultado.value().getValue() + ".";
             } else {
                 newTexto[i] = resultado.value().getValue();
             }
         }
         
-        System.out.println("Texto traducido: " + String.join(" ", newTexto) + ".");
+        System.out.println("Texto traducido: " + String.join(" ", newTexto));
     }
 }
