@@ -13,4 +13,15 @@ public class TxtReader {
         }
         return lista;
     }
+
+    public String[] textoArray(String filePath) {
+        String [] lista = new String[0];
+        try {
+            String content = Files.readString(Path.of(filePath)).trim();
+            lista = content.split("\\s+"); 
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+            }
+        return lista;
+    }
 }
