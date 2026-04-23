@@ -18,15 +18,10 @@ formato requerido: (ingles, español)\n
 Ejemplo:
 
 (house, casa)
-
 (dog, perro)
-
 (homework, tarea)
-
 (woman, mujer)
-
 (town, pueblo)
-
 (yes, sí)
 
 Archivo de texto (texto.txt)
