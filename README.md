@@ -16,17 +16,24 @@ Archivo de diccionario (diccionario.txt)
 formato requerido: (ingles, español)\n
 
 Ejemplo:
+
 (house, casa)
+
 (dog, perro)
+
 (homework, tarea)
+
 (woman, mujer)
+
 (town, pueblo)
+
 (yes, sí)
 
 Archivo de texto (texto.txt)
-Ejemplo:
-The woman asked me to do my homework about my town.
 
+Ejemplo:
+
+The woman asked me to do my homework about my town.
 
 Referencia de implementacion de BST:
 https://www.geeksforgeeks.org/java/java-program-to-construct-a-binary-search-tree/
