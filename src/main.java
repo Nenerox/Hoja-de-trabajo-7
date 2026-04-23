@@ -4,7 +4,7 @@ public class main {
         TxtReader reader = new TxtReader();
         
         String[] diccionario = reader.readFile("diccionario.txt", "\n");
-        String[] texto = reader.readFile("texto.txt", " ");
+        String[] texto = reader.textoArray("texto.txt");
         String[] newTexto = new String[texto.length];
 
         // Insertar las palabras del diccionario en el BST
@@ -24,17 +24,23 @@ public class main {
 
         // Traducir el texto utilizando el BST
         for (int i = 0; i < texto.length; i++) {
-            String palabra = texto[i];
-            BinaryTree<ComparableAssociation<String, String>> resultado = bst.search(new ComparableAssociation<>((String) palabra.toLowerCase().trim().replace(".", ""), null));
+            String original = texto[i];
+            String palabra = original.toLowerCase().trim().replaceAll("[^a-z]", "");;
+            BinaryTree<ComparableAssociation<String, String>> resultado = bst.search(new ComparableAssociation<>(palabra, null));
             if (resultado == null) {
-                newTexto[i] = "*" + palabra + "*";
-            } else if (resultado != null && palabra.endsWith(".")) {
+                newTexto[i] = "*" + original + "*";
+            } else if (original.endsWith(".")) {
                 newTexto[i] = resultado.value().getValue() + ".";
-            } else {
+            } else if (original.endsWith(",")) {
+                newTexto[i] = resultado.value().getValue() + ","; 
+            } else if (original.endsWith("!")) {
+                newTexto[i] = resultado.value().getValue() + "!"; 
+            } else if (original.endsWith("?")) {
+                newTexto[i] = resultado.value().getValue() + "?"; 
+            }else {
                 newTexto[i] = resultado.value().getValue();
             }
         }
-        
         System.out.println("Texto traducido: " + String.join(" ", newTexto));
     }
 }
